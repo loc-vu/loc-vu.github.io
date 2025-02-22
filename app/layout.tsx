@@ -1,5 +1,7 @@
 import './global.css'
 import type { Metadata } from 'next'
+import { Courier_Prime } from 'next/font/google';
+
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import { Navbar } from './components/nav'
@@ -9,20 +11,11 @@ import Footer from './components/footer'
 import { baseUrl } from './sitemap'
 
 export const metadata: Metadata = {
-  metadataBase: new URL(baseUrl),
   title: {
-    default: 'Next.js Portfolio Starter',
-    template: '%s | Next.js Portfolio Starter',
+    default: 'Loc Vu',
+    template: '%s | Loc Vu',
   },
   description: 'This is my portfolio.',
-  openGraph: {
-    title: 'My Portfolio',
-    description: 'This is my portfolio.',
-    url: baseUrl,
-    siteName: 'My Portfolio',
-    locale: 'en_US',
-    type: 'website',
-  },
   robots: {
     index: true,
     follow: true,
@@ -37,6 +30,7 @@ export const metadata: Metadata = {
 }
 
 const cx = (...classes) => classes.filter(Boolean).join(' ')
+const courierNew = Courier_Prime({ subsets: ['latin'], weight: ['400', '700'] });
 
 export default function RootLayout({
   children,
@@ -47,19 +41,21 @@ export default function RootLayout({
     <html
       lang="en"
       className={cx(
-        'text-black bg-white dark:text-white dark:bg-black',
-        GeistSans.variable,
-        GeistMono.variable
+        'text-black bg-white',
+        courierNew.className
       )}
     >
-      <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
-          <Navbar />
-          {children}
-          <Footer />
-          <Analytics />
-          <SpeedInsights />
-        </main>
+    <body >
+    <div className="flex h-screen w-screen">
+      <div className="flex justify-center items-center w-[15%] w-min-[10%] border-r">
+        <div className="p-20">
+          <Navbar/>
+        </div>
+      </div>
+      <main className="flex-auto min-w-0 flex flex-col p-20 overflow-auto">
+      {children}
+      </main>
+    </div>
       </body>
     </html>
   )

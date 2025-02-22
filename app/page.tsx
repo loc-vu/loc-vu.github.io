@@ -1,20 +1,31 @@
+import profilePic from '/images/profile_pic.jpg'
+import Image from 'next/image';
+
 import { BlogPosts } from 'app/components/posts'
+import {PortfolioGrid} from 'app/components/portfolio_grid'
 
 export default function Page() {
   return (
     <section>
+      {/* Profile Picture Placeholder */}
+      <div className="w-[250px] h-[250px] mb-10 bg-gray-300 rounded-full">
+        <Image 
+        className="rounded-full" 
+        src={`/images/profile_pic.jpg`}
+        width={250} height={250}
+        alt="Profile" />
+      </div>
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-        My Portfolio
+        About Me - Website under contruction
       </h1>
       <p className="mb-4">
-        {`I'm a Vim enthusiast and tab advocate, finding unmatched efficiency in
-        Vim's keystroke commands and tabs' flexibility for personal viewing
-        preferences. This extends to my support for static typing, where its
-        early error detection ensures cleaner code, and my preference for dark
-        mode, which eases long coding sessions by reducing eye strain.`}
+        {`Hi! My name is Loc Vu, I graduted from UCSD with a B.S. in Computer Science and am currently working
+          as a Software Engineer at Intel.`}
       </p>
       <div className="my-8">
+        <PortfolioGrid />
         <BlogPosts />
+
       </div>
     </section>
   )
