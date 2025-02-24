@@ -8,8 +8,9 @@ export default function Page() {
   return (
     <section>
       {/* Profile Picture Placeholder */}
+      {/* TODO: Fix image not showing up */}
       <div className="w-[250px] h-[250px] mb-10 bg-gray-300 rounded-full">
-        <Image 
+        <img 
         className="rounded-full" 
         src={`/images/profile_pic.jpg`}
         width={250} height={250}
