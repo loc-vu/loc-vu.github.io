@@ -12,7 +12,7 @@ export default function Page() {
       <div className="w-[250px] h-[250px] mb-10 bg-gray-300 rounded-full">
         <img 
         className="rounded-full" 
-        src={`/images/profile_pic.jpg`}
+        src={`/images/profile_pic.JPG`}
         width={250} height={250}
         alt="Profile" />
       </div>
